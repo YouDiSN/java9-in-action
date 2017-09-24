@@ -1,7 +1,9 @@
 package de.exxcellent.java9.util;
 
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
+
 import static java.lang.System.out;
 
 public class StackWalkerExample {
@@ -15,12 +17,12 @@ public class StackWalkerExample {
 
     // return class/method only for our classes.
     private static List<String> walkAndFilterStackframe() {
-        return StackWalker.getInstance().walk(s ->
-                s.map( frame -> frame.getClassName()+"/"+frame.getMethodName() )
+        return StackWalker.getInstance()
+                .walk(s -> s.map(frame -> frame.getClassName() + "/" + frame.getMethodName())
                         .filter(name -> name.startsWith("de.exxcellent"))
                         .limit(10)
                         .collect(Collectors.toList())
-            );
+        );
     }
 
 }
