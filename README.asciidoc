@@ -25,13 +25,15 @@ It's based on the current state as of 2016-07-01.
 3. Open project with IntelliJ IDEA 2016.2+ or run `run-with-modules`
 
 ----
-$ env | grep JAVA_HOME
-JAVA_HOME=/usr/lib/jvm/java-9-oracle
-$ javac -version
-javac 9-ea
-$ java -version
-java version "9-ea"
-Java(TM) SE Runtime Environment (build 9-ea+123)
-Java HotSpot(TM) 64-Bit Server VM (build 9-ea+123, mixed mode)
+use jenv to manage java version
+
+eval "$(jenv init -)"
+
+jenv add "java8" // java8's path
+jenv add "java9" // java9's path
+
+jenv local 9 -> switch java version to 9
+jenv global 9 -> set global java version to 9
+
 ----
 
