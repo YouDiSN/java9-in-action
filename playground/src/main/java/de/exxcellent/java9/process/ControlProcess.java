@@ -9,7 +9,7 @@ public class ControlProcess {
      * Start a process, listen to process termination, retrieve process details, kill processes.
      */
     public static void main(String[] args) throws IOException, InterruptedException {
-        Process sleeper = Runtime.getRuntime().exec("sleep 1h");
+        Process sleeper = Runtime.getRuntime().exec("sleep 1");
 
         // Get PIDs of own or started processes
         out.println("Your pid is " + ProcessHandle.current().pid());
