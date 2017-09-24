@@ -4,25 +4,39 @@ import jdk.incubator.http.HttpClient;
 import jdk.incubator.http.HttpRequest;
 import jdk.incubator.http.HttpResponse;
 
+import java.io.IOException;
 import java.net.URI;
+import java.util.concurrent.ExecutionException;
 
 public class HttpClientExample {
 
-    /**
-     * The HTTP API functions asynchronously &amp; synchronously. In asynchronous mode,
-     * work is done on the threads supplied by the client's ExecutorService.
-     */
-    public static void main(String[] args) throws Exception {
-        String response = HttpClient.newHttpClient()
+    public static void main(String[] args) throws ExecutionException, InterruptedException, IOException {
+        String url = "https://www.baidu.com";
+        System.out.println(sendRequestAsync(url));
+        System.out.println(sendRequest(url));
+
+        Thread.sleep(999); // Give worker thread some time.
+    }
+
+    private static String sendRequest(String url) throws IOException, InterruptedException {
+        return HttpClient.newHttpClient()
                 .send(
-                        HttpRequest.newBuilder(URI.create("https://www.baidu.com"))
+                        HttpRequest.newBuilder(URI.create(url))
+                                .GET()
+                                .build(),
+                        HttpResponse.BodyHandler.asString()
+                ).body();
+    }
+
+    private static String sendRequestAsync(String url) throws InterruptedException, java.util.concurrent.ExecutionException {
+        return HttpClient.newHttpClient()
+                .sendAsync(
+                        HttpRequest.newBuilder(URI.create(url))
                                 .GET()
                                 .build(),
                         HttpResponse.BodyHandler.asString()
                 )
-                .body();
-        System.out.println(response);
-
-        Thread.sleep(999); // Give worker thread some time.
+                .handleAsync((stringHttpResponse, throwable) -> stringHttpResponse.body())
+                .get();
     }
 }
