@@ -12,10 +12,10 @@ public class ControlProcess {
         Process sleeper = Runtime.getRuntime().exec("sleep 1h");
 
         // Get PIDs of own or started processes
-        out.println("Your pid is " + ProcessHandle.current().getPid());
-        out.println("Started process is " + sleeper.getPid());
+        out.println("Your pid is " + ProcessHandle.current().pid());
+        out.println("Started process is " + sleeper.pid());
 
-        ProcessHandle sleeperHandle = ProcessHandle.of(sleeper.getPid())   // Optional
+        ProcessHandle sleeperHandle = ProcessHandle.of(sleeper.pid())   // Optional
                 .orElseThrow(IllegalStateException::new);
 
         // Do things on exiting process
@@ -25,7 +25,7 @@ public class ControlProcess {
 
         // Get info on process
         out.printf("[%d] %s - %s\n",
-                   sleeperHandle.getPid(),
+                   sleeperHandle.pid(),
                    sleeperHandle.info().user().orElse("unknown"),
                    sleeperHandle.info().commandLine().orElse("none"));
 
