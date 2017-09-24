@@ -17,15 +17,15 @@ javac $(find playground/src/main/java -name "*.java") \
 echo -e "\n=== Compiling playground-dependent"
 javac $(find playground-dependent/src/main/java -name "*.java")\
         -d target/module/anothermodule \
-        -modulepath target/module
+        --module-path target/module
 
-$ java  -modulepath target/module \
+java  --module-path target/module \
         -m anothermodule/de.exxcellent.anothermodule.TestJigsawSPI
 
 echo -e "\n=== Running anothermodule/de.exxcellent.anothermodule.RetrieveModuleInfo"
-java -modulepath target/module -m anothermodule/de.exxcellent.anothermodule.RetrieveModuleInfo
+java --module-path target/module -m anothermodule/de.exxcellent.anothermodule.RetrieveModuleInfo
 
 
 echo -e "\n=== Running anothermodule/de.exxcellent.anothermodule.TestJigsawSPI"
-java -modulepath target/module  \
+java --module-path target/module  \
     -m anothermodule/de.exxcellent.anothermodule.TestJigsawSPI
