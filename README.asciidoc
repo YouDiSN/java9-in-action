@@ -1,11 +1,14 @@
 = Java 9 - What's hot, whats not
 Benjamin Schmid <benjamin.schmid@exxcellent.de>
+Youdisn Wu <youdisn.wu@gmail.com>
 
 == Introduction
 This repository & RevealJS HTML slide presentation tries to give an overview
 over the improvments coming with Java 9.
 
 It's based on the current state as of 2016-07-01.
+
+Youdisn updates in 2017-09-24
 
 == Contents
 
