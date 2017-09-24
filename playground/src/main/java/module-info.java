@@ -3,7 +3,7 @@ module de.exxcellent.java9 {
 
     // Depend on an offficial JDK modules
     //    full list see http://cr.openjdk.java.net/~mr/jigsaw/ea/module-summary.html
-    requires java.httpclient;
+    requires jdk.incubator.httpclient;
 
     // Service example  (SPI with Jigsaw modules)
     exports de.exxcellent.java9.jigsaw;
