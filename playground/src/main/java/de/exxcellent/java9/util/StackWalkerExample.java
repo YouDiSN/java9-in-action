@@ -1,7 +1,6 @@
 package de.exxcellent.java9.util;
 
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 
 import static java.lang.System.out;

@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static java.lang.System.out;
-
 public class ImmutableCollections {
 
     /**
@@ -15,14 +13,14 @@ public class ImmutableCollections {
     public static void main(String args[]) {
         // 不能为null
         List<Integer> listOfNumbers = List.of(1, 2, 3, 4, 5/*, null*/);
-        out.println(listOfNumbers);
+        System.out.println(listOfNumbers);
 
         // 不能重复
         Set<Integer> setOfNumbers = Set.of(1, 2, 3, 4, 5/*, 1*/);
-        out.println(setOfNumbers);
+        System.out.println(setOfNumbers);
 
         Map<String, String> mapOfString = Map.of("key1", "value1", "key2", "value2");
-        out.println(mapOfString);
+        System.out.println(mapOfString);
 
         // key 不能重复
         Map<String, String> moreMapOfString = Map.ofEntries(
@@ -30,7 +28,7 @@ public class ImmutableCollections {
                 Map.entry("key2", "value2")/*,
                 Map.entry("key1", "value3")*/
         );
-        out.println(moreMapOfString);
+        System.out.println(moreMapOfString);
     }
 
 }

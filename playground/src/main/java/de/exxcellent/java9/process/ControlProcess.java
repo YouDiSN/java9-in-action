@@ -19,9 +19,7 @@ public class ControlProcess {
                 .orElseThrow(IllegalStateException::new);
 
         // Do things on exiting process
-        sleeperHandle.onExit().thenRun(                                    // CompletableFuture
-                () -> out.println("Sleeper exited")
-        );
+        sleeperHandle.onExit().thenRun(() -> out.println("Sleeper exited"));
 
         // Get info on process
         out.printf("[%d] %s - %s\n",
