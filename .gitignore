@@ -33,6 +33,7 @@ Temporary Items
 # User-specific stuff:
 .idea/**/workspace.xml
 .idea/**/tasks.xml
+.idea/compiler.xml
 .idea/dictionaries
 
 # Sensitive or high-churn files:
@@ -78,8 +79,6 @@ crashlytics-build.properties
 fabric.properties
 ### Java template
 # Compiled class file
-*.class
-
 # Log file
 *.log
 
@@ -101,4 +100,5 @@ fabric.properties
 hs_err_pid*
 
 .gitignore
+*.iml
 target/
